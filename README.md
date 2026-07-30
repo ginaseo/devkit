@@ -1,12 +1,12 @@
-# gina-devkit
+# devkit
 
 개인용 Claude Code 플러그인. 서브에이전트 3개, 커맨드 1개, 스킬 3개로 구성 — 새 프로젝트마다 같은 규칙을 다시 설명할 필요 없이 설치 한 번으로 재사용한다.
 
 ## 설치
 
 ```
-/plugin marketplace add ginaseo/gina-devkit
-/plugin install gina-devkit
+/plugin marketplace add ginaseo/devkit
+/plugin install devkit
 ```
 
 ## 들어있는 것

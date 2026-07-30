@@ -1,5 +1,5 @@
 {
-  "name": "gina-devkit",
+  "name": "devkit",
   "description": "서브에이전트(explorer/implementer/architect) + 코드리뷰 커맨드 + 모델선택·리뷰타당성검토·플러그인 라우팅 정책 번들",
   "author": {
     "name": "ginaseo"

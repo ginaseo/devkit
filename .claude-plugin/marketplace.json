@@ -1,13 +1,13 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "gina-devkit",
+  "name": "devkit",
   "description": "개인용 Claude Code 서브에이전트·커맨드·정책 번들",
   "owner": {
     "name": "ginaseo"
   },
   "plugins": [
     {
-      "name": "gina-devkit",
+      "name": "devkit",
       "description": "explorer/implementer/architect 서브에이전트, /review 커맨드(codex 우선), 모델선택·리뷰타당성검토·플러그인 라우팅 스킬",
       "source": "./",
       "category": "productivity"
