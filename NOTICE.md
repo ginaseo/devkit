@@ -10,7 +10,7 @@
 - 포함된 파일:
   - `agents/cavecrew-builder.md`, `agents/cavecrew-investigator.md`, `agents/cavecrew-reviewer.md`
   - `skills/caveman/`, `skills/caveman-commit/`, `skills/caveman-compress/`, `skills/caveman-help/`, `skills/caveman-review/`, `skills/caveman-stats/`, `skills/cavecrew/`
-  - `hooks/caveman/caveman-activate.js`, `caveman-mode-tracker.js`, `caveman-config.js`, `caveman-stats.js`
+  - `hooks/caveman/caveman-activate.js`, `caveman-mode-tracker.js`, `caveman-config.js`, `caveman-stats.js`, `caveman-statusline.ps1`, `caveman-statusline.sh`
   - `hooks/hooks.json`의 `SessionStart`·`UserPromptSubmit` 항목
 
 원본이 업데이트돼도 여기 파일은 자동으로 따라가지 않는다. 최신화하려면 위 파일들을 원본 저장소에서 다시 복사해온다.
