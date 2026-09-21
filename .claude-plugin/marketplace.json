@@ -11,6 +11,15 @@
       "description": "explorer/implementer/architect 서브에이전트, /review 커맨드(codex 우선), 모델선택·리뷰타당성검토·플러그인 라우팅 스킬",
       "source": "./",
       "category": "productivity"
+    },
+    {
+      "name": "caveman",
+      "description": "항상 켜두는 출력 압축 모드(JuliusBrussee/caveman 재수록). 기술 내용은 유지하고 군더더기만 잘라 토큰 절약",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/JuliusBrussee/caveman.git"
+      },
+      "category": "productivity"
     }
   ]
 }

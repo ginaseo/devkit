@@ -6,8 +6,11 @@
 
 ```
 /plugin marketplace add ginaseo/devkit
-/plugin install devkit
+/plugin install devkit@devkit
+/plugin install caveman@devkit
 ```
+
+`caveman`은 원본(`JuliusBrussee/caveman`)을 이 마켓플레이스에 재수록해둔 것이라 별도 `marketplace add` 없이 같이 깔린다 — 항상 켜두는 기본 구성이라 devkit 옆에 붙여놨다.
 
 ## 들어있는 것
 
@@ -51,11 +54,24 @@
 | **humanize-korean** | 한글로 쓴 글의 AI 티 제거 |
 | **figma** | Figma 디자인 읽기/쓰기, 코드↔디자인 변환 |
 
-`caveman`(대화 톤)·`claude-dashboard`(사용량 관측)는 작업 성공/효율과 무관해 라우팅 대상이 아니다 — 필요하면 개별 설치.
+`caveman`(대화 톤)·`claude-dashboard`(사용량 관측)는 "어느 작업에 쓸지" 고르는 대상이 아니라서 위 표에 없다. 특히 `caveman`은 작업 종류와 무관하게 **항상 켜두는 기본 구성**이라 devkit 마켓플레이스에 같이 올려뒀다(위 설치 참고).
 
-## 함께 쓰는 플러그인 — 설치 명령
+### caveman — 항상 켜두는 출력 모드
 
-Claude Code 플러그인은 다른 플러그인을 의존성으로 선언해 자동 설치하는 기능이 없다(직접 확인함 — 설치된 모든 플러그인 매니페스트에 그런 필드 없음). 그래서 코드로 묶어 넣는 대신, 정확한 설치 명령을 여기 남겨둔다. 로컬 캐시 경로가 아니라 각자의 GitHub 소스라 어느 기기에서든 그대로 동작한다.
+모든 응답을 압축된 문체로 바꿔 토큰을 줄인다(기술 내용·코드·에러 문자열은 그대로, 관사·군더더기·인사말만 제거). 작업 성격과 무관하게 세션 내내 유지되므로 라우팅 표에는 넣지 않는다.
+
+| 구성요소 | 언제 |
+|---|---|
+| `caveman:caveman` | 모드 켜기/강도 변경(`/caveman lite`, `full`, `ultra`) |
+| `caveman:caveman-commit` | 커밋 메시지 생성 |
+| `caveman:caveman-review` | 리뷰 코멘트 압축 |
+| `caveman:cavecrew` | 출력까지 압축되는 서브에이전트(investigator/builder/reviewer) 위임 |
+
+세션마다 자동으로 켜려면 `SessionStart` 훅에 `/caveman full`을 걸어둔다(설정은 `~/.claude/settings.json`).
+
+## 함께 쓰는 플러그인 — 한 번에 설치
+
+Claude Code 플러그인은 다른 플러그인을 의존성으로 선언해 자동 설치하는 기능이 없다(직접 확인함 — 설치된 모든 플러그인 매니페스트에 그런 필드 없음). 그래서 코드로 묶어 넣는 대신, 아래 블록을 통째로 복사해 붙여넣으면 이 킷이 전제하는 플러그인이 한 번에 깔리도록 정리해뒀다. 로컬 캐시 경로가 아니라 각자의 GitHub 소스라 어느 기기에서든 그대로 동작한다.
 
 ```
 /plugin marketplace add anthropics/claude-plugins-official
@@ -77,16 +93,13 @@ Claude Code 플러그인은 다른 플러그인을 의존성으로 선언해 자
 /plugin marketplace add epoko77-ai/im-not-ai
 /plugin install humanize-korean@im-not-ai
 
-/plugin marketplace add JuliusBrussee/caveman
-/plugin install caveman@caveman
-
 /plugin marketplace add uppinote20/claude-dashboard
 /plugin install claude-dashboard@claude-dashboard
 ```
 
 `claude-plugins-official` 마켓플레이스 하나에 `superpowers`와 `figma`가 같이 들어있어서 그 둘은 `marketplace add`를 한 번만 하면 된다.
 
-`superpowers`·`codex`는 없으면 `/review`·서브에이전트 실행이 대체 경로(opus 직접 리뷰, 방법론 없이 진행)로 동작하고, `karpathy-skills`·`ponytail`·`humanizer`·`humanize-korean`·`figma`는 없으면 `plugin-check`가 감지해서 설치 명령을 제시한다. `caveman`·`claude-dashboard`는 순수 선택 사항.
+`superpowers`·`codex`는 없으면 `/review`·서브에이전트 실행이 대체 경로(opus 직접 리뷰, 방법론 없이 진행)로 동작하고, `karpathy-skills`·`ponytail`·`humanizer`·`humanize-korean`·`figma`는 없으면 `plugin-check`가 감지해서 설치 명령을 제시한다. `caveman`은 기본 구성이라 devkit 마켓플레이스에서 바로 깔리고, `claude-dashboard`(사용량 관측)만 선택 사항이다.
 
 ## 왜 CLAUDE.md가 아니라 스킬인가
 
